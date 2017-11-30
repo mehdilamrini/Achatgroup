@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+   "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+   "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+		<package name="module-login" namespace="/login"
+		extends="struts-default">
+		
+		<action name="login"
+		
+		class="achatcollectif.presentation.actions.LoginAction" method="login">
+		
+		<result name="success">/vues/login_ok.jsp</result>
+		<result name="error">/vues/login_ko.jsp</result>
+		</action>
+		
+
+		</package>
+		
+		
+		
+		<action name="signin"
+		
+		class="achatcollectif.presentation.actions.CreateAccountAction" method="CreateAccount">
+		
+		<result name="success">/vues/signin_ok.jsp</result>
+		<result name="error">/vues/signin_ko.jsp</result>
+		
+		
+		</action>
+		
+
+		
+
+
+</struts>

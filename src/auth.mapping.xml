@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+		<class name="achatcollectif.model.Utilisateurs" table="Utilisateurs">
+	
+		<id name="id_utilisateurs" type="long" column="id_utilisateurs">
+			<generator class="increment" />
+		</id>
+		
+		<property name="nom" type="string" column="nom"/>
+		<property name="prenom" type="string"  column="prenom" />
+		<property name="email"  type="string" column="email" />
+		<property name="password"  type="string" column="password" />
+		<property name="date"  type="date" column="date_naissance" />
+		<property name="admin" type="int"  column="admin" />
+		</class>
+
+</hibernate-mapping>
