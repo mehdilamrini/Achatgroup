@@ -16,6 +16,7 @@ public class LoginAction extends ActionSupport  {
 	
 	ILoginMetier metier;
 	private Utilisateurs userBean;
+	private static long result;
 	
 	public String login() {
 		
@@ -25,14 +26,14 @@ public class LoginAction extends ActionSupport  {
 
 			metier = new LoginMetier ();
 			
-			//System.out.println("Appel au service ajout de la partie metier");
-			//System.out.println("email: " + userBean.getEmail());
-	        //System.out.println("pass: " + userBean.getPassword());
 			
-	         String result =metier.LoginUtilisateur(userBean.getEmail(), userBean.getPassword());
+			
+	         result =metier.LoginUtilisateur(userBean.getEmail(), userBean.getPassword());
+	         
+	         
 	        
-	        
-	        if (result=="1")
+	         
+	        if (result!=0)
 			
 			return Action.SUCCESS;
 	        else 
@@ -43,7 +44,12 @@ public class LoginAction extends ActionSupport  {
 	}
 	
 	
-	
+	public static long getID() {
+		
+		
+		return result;
+		
+	}
 
 	 public Utilisateurs getUserBean() {
 	        return userBean;

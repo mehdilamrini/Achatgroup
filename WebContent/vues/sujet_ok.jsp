@@ -7,10 +7,10 @@
 <head>
 
 
-<title>Login Success</title>
+<title>Sujet Success</title>
 </head>
 <body>
-    <h2 align="center">Account Successfully Created!</h2>
+    <h2 align="center">Sujet crée !</h2>
 </body>
 </html>
 

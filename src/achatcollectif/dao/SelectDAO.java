@@ -8,6 +8,8 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
+import achatcollectif.model.Utilisateurs;
+
 
 
 public class SelectDAO implements ISelectDAO {
@@ -15,7 +17,10 @@ public class SelectDAO implements ISelectDAO {
 	private static SessionFactory factory;
 	
 	private static List<?> utilisateurs;
-	public String result;
+	public long result;
+	
+	
+	
 
 
 	private static void addAllConfigs() {
@@ -27,8 +32,8 @@ public class SelectDAO implements ISelectDAO {
 
 	}
 
-
-	public String selectEmailPass(String email,String password) {
+	
+	public long selectEmailPass(String email,String password) {
 
 		addAllConfigs();
 
@@ -45,31 +50,39 @@ public class SelectDAO implements ISelectDAO {
 
 			 if (utilisateurs.isEmpty())
 				 
-				result="0";
+				result=0;
 				 
 				 else 
 					 
-					result ="1";
+					{
 				 
 			 
-		/*	for (int i=0 ; i< utilisateurs.size(); i++) {
+			for (int i=0 ; i< utilisateurs.size(); i++) {
 
 				Utilisateurs c = (Utilisateurs) utilisateurs.get(i);
-
 				
-				System.out.println("Email db ok:"+ c.getEmail());
-				System.out.println("Password db ok:"+ c.getPassword());
+				
+				
+				 result = c.getId_utilisateurs();
+				
+				 
+				/*System.out.println("id from db :"+ id);
 
-		 
+				System.out.println("Email:"+ c.getEmail());
+				System.out.println("Password :"+ c.getPassword());*/
 
 
-			}*/ 
+
+			} }
 
 
 		session.close();
 		factory.close();
 		return result;
 	}
+
+
+
 
 
 	/*	private void DeleteCommand(String code) {

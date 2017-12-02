@@ -4,15 +4,48 @@ import java.util.Date;
 
 public class Sujet {
 	
-
 	private long id_sujet;
 	private long id_utilisateurs;
 	private String titre;
 	private double prix_initial;
 	private double prix_final;
-	private Date date ;
+	private Date date_expiration ;
+	private String image;
 	private String rubrique;
 	private String description ;
+	private String dt;
+
+	
+
+	public String getDt() {
+		return dt;
+	}
+
+
+	public void setDt(String dt) {
+		this.dt = dt;
+	}
+
+
+	public Date getDate_expiration() {
+		return date_expiration;
+	}
+
+
+	public void setDate_expiration(Date date_expiration) {
+		this.date_expiration = date_expiration;
+	}
+
+
+	public String getImage() {
+		return image;
+	}
+
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+
 	
 	
 	
@@ -28,7 +61,7 @@ public class Sujet {
 	
 	
 	
-	public Sujet(long id_sujet, long id_utilisateurs, String titre, double prix_initial, double prix_final, Date date,
+	public Sujet(long id_sujet, long id_utilisateurs, String titre, double prix_initial, double prix_final, Date date_expiration,
 			String rubrique, String description) {
 		super();
 		this.id_sujet = id_sujet;
@@ -36,7 +69,7 @@ public class Sujet {
 		this.titre = titre;
 		this.prix_initial = prix_initial;
 		this.prix_final = prix_final;
-		this.date = date;
+		this.date_expiration = date_expiration;
 		this.rubrique = rubrique;
 		this.description = description;
 	}
@@ -72,12 +105,7 @@ public class Sujet {
 	public void setPrix_final(double prix_final) {
 		this.prix_final = prix_final;
 	}
-	public Date getDate() {
-		return date;
-	}
-	public void setDate(Date date) {
-		this.date = date;
-	}
+	
 	public String getRubrique() {
 		return rubrique;
 	}

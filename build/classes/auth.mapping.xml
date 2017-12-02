@@ -18,5 +18,41 @@
 		<property name="date"  type="date" column="date_naissance" />
 		<property name="admin" type="int"  column="admin" />
 		</class>
+		
+		
+		<class catalog="Achat_collectif" dynamic-insert="false" dynamic-update="false" mutable="true" name="achatcollectif.model.Sujet" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="Sujet">
+        <id name="id_sujet" type="long">
+            <column name="id_sujet"/>
+            <generator class="identity"/>
+        </id>
+        <property generated="never" lazy="false" name="id_utilisateurs" optimistic-lock="true" type="long" unique="false">
+            <column name="id_utilisateurs" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="titre" optimistic-lock="true" type="string" unique="false">
+            <column length="100" name="titre" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="prix_initial" optimistic-lock="true" type="double" unique="false">
+            <column name="prix_initial" not-null="true" precision="22" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="prix_final" optimistic-lock="true" type="double" unique="false">
+            <column name="prix_final" not-null="true" precision="22" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="date_expiration" optimistic-lock="true" type="date" unique="false">
+            <column length="10" name="date_expiration" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="rubrique" optimistic-lock="true" type="string" unique="false">
+            <column length="50" name="rubrique" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="image" optimistic-lock="true" type="string" unique="false">
+            <column length="50" name="image" not-null="false"/>
+        </property>
+        <property generated="never" lazy="false" name="description" optimistic-lock="true" type="string" unique="false">
+            <column length="65535" name="description" not-null="true"/>
+        </property>
+    </class>
+    
+    
+    
+    
 
 </hibernate-mapping>

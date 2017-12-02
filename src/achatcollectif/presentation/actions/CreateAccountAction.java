@@ -1,5 +1,9 @@
 package achatcollectif.presentation.actions;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -28,19 +32,42 @@ public class CreateAccountAction extends ActionSupport {
 	}
 	
 	
+	/*public static Date StringToDate(String dt) throws ParseException {
+		
+		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+		
+		Date parseDate = sdf.parse(dt);
+		
+		return parseDate;
+
+		
+		
+	}
+	*/
+	
 	
 
-	public String CreateAccount() {
+	public String CreateAccount() throws ParseException {
 		
 		metier = new CreateAccountMetier();
 		
-		Boolean result = metier.CreateAccountMetier(userBean.getNom(), userBean.getPrenom(),
-				userBean.getPassword(), userBean.getEmail(), userBean.getDate());
+		
+		
+		
+		
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		
+		Date parseDate = sdf.parse(userBean.getDt());
+		
+		
+		
+		Boolean result = metier.CreateAccountM(userBean.getNom(), userBean.getPrenom(),
+				userBean.getPassword(), userBean.getEmail() ,parseDate);
 
 		if (result == true) 
 			return Action.SUCCESS;
         else 
-        	return Action.ERROR;
+        		return Action.ERROR;
 		
 	}
 	

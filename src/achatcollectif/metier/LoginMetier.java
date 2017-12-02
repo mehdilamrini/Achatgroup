@@ -9,12 +9,14 @@ public class LoginMetier implements ILoginMetier {
 	
 	ISelectDAO dao = new SelectDAO();
 	
-			public String LoginUtilisateur(String email , String password)
+			public long LoginUtilisateur(String email , String password)
 			{
 				
 				return dao.selectEmailPass(email,password);
 				
 			}
+			
+			
 	
 
 }

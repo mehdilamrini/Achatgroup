@@ -10,14 +10,14 @@
 
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1">
-<title>Créer un Compte</title>
+<title>Créer un Sujet</title>
 </head>
 
 <script type="text/javascript">
 
 
-function Sign() {
-	this.document.monF.action="signin.action";
+function suj() {
+	this.document.monF.action="sujet.action";
 	this.document.monF.submit();
 	
 }
@@ -39,7 +39,7 @@ function Sign() {
 
 
 
-<form name="monF" method="post">
+<form name="monF" method="get">
 
 
 
@@ -48,45 +48,53 @@ function Sign() {
 
 <tbody>
 
+
+<!--  % String hidden = request.getParameter("userBean.id_utilisateurs"); %-->
+
+<!--  %=hidden %-->
+
 <tr>
-<td>Nom:</td>
-<td colspan=2><input type="text" name="userBean.nom" /> </td>
+<td>Titre:</td>
+<td colspan=2><input type="text" name="sujetBean.titre" /> </td>
 
 </tr>
 
 <tr>
-<td>Prenom:</td>
-<td colspan=2><input type="text" name="userBean.prenom" /> </td>
-
-</tr>
-
-
-<tr>
-<td>Date de naissance:</td>
-<td colspan=2><input type="date" name="userBean.dt" /> </td>
-
-</tr>
-
-
-<tr>
-<td>Email:</td>
-<td colspan=2><input type="text" name="userBean.email" /> </td>
+<td>Prix initial:</td>
+<td colspan=2><input type="text" name="sujetBean.prix_initial" /> </td>
 
 </tr>
 
 <tr>
-<td>Password: </td>
-<td colspan=2><input type="password" name="userBean.password" /></td>
+<td>Prix final:</td>
+<td colspan=2><input type="text" name="sujetBean.prix_final" /> </td>
+
+</tr>
+
+
 
 <tr>
+<td>Date d'expiration :</td>
+<td colspan=2><input type="date" name="sujetBean.dt" /> </td>
+</tr>
 
+
+<tr>
+<td>rubrique:</td>
+<td colspan=2><input type="text" name="sujetBean.rubrique" /> </td>
+</tr>
+
+
+<tr>
+<td>Description: </td>
+<td colspan=2><input type="password" name="sujetBean.description" /></td>
+<tr>
 <tr>
 
 
 </tr>
-
 <tr>
-<td colspan=3><input type="submit" value="Créer mon Compte" onclick="Sign()" />
+<td colspan=3><input type="submit" value="Créer sujet" onclick="suj()" />
 </td>
 </tr>
 

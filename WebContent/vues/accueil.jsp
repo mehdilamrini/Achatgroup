@@ -16,7 +16,7 @@
 
 
 function login(){
-	this.document.monF.action="login/login.action";
+	this.document.monF.action="login.action";
 	this.document.monF.submit();
 	
 }
@@ -41,14 +41,16 @@ function login(){
 
 
 
-<form name="monF" method="get">
+<form name="monF" method="get" >
 
+<input type="hidden" name="userBean.id_utilisateurs" />
 
 
 <table border="1" bordercolor="black">
 <caption>Se connecter</caption>
 
 <tbody>
+
 
 <tr>
 <td>Email:</td>
@@ -69,7 +71,7 @@ function login(){
 
 <tr>
 <td colspan=3><input type="submit" value="Se connecter" onclick="login()" />
-<a href="vues/SignIn.jsp">Sign in</a>
+<a href="vues/signin.jsp">Sign in</a>
 
 </a>
 

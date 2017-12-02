@@ -5,6 +5,6 @@ public interface ISelectDAO {
 
 	
 
-	String selectEmailPass(String email, String password);
-
+	long selectEmailPass(String email, String password);
+	
 }

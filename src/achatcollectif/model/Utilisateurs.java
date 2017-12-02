@@ -10,11 +10,12 @@ public class Utilisateurs {
 	private String password;
 	private String email;
 	private Date date ;
+	private String dt;
 	private int admin;
 
 
 
-	public Utilisateurs(long id_utilisateurs, String nom, String prenom,String email ,String password, Date date, int admin) {
+	public Utilisateurs(long id_utilisateurs, String nom, String prenom,String email ,String password, Date date,String dt, int admin) {
 
 		super();
 		this.id_utilisateurs = id_utilisateurs;
@@ -24,6 +25,7 @@ public class Utilisateurs {
 		this.password=password;
 		this.date = date;
 		this.admin = admin;
+		this.dt=dt;
 	}
 
 	public Utilisateurs() {
@@ -86,6 +88,14 @@ public class Utilisateurs {
 
 	public void setAdmin(int admin) {
 		this.admin = admin;
+	}
+
+	public String getDt() {
+		return dt;
+	}
+
+	public void setDt(String dt) {
+		this.dt = dt;
 	}
 
 
