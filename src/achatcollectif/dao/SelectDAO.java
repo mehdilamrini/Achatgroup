@@ -8,176 +8,201 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-import achatcollectif.model.Utilisateurs;
 
 
 
 public class SelectDAO implements ISelectDAO {
 
 	private static SessionFactory factory;
-	
-	private static List<?> utilisateurs;
-	public long result;
-	
-	
-	
+	public  List<?> utilisateurs;
+	public  List<?> sujets;
+
+
 
 
 	private static void addAllConfigs() {
+
 		Configuration config = new Configuration();
 		config = config.configure("persistence.cfg.xml");
 		factory = config.buildSessionFactory();
 
-
-
 	}
 
-	
-	public long selectEmailPass(String email,String password) {
+
+	public List<?> selectEmailPass(String email,String password) {
+
 
 		addAllConfigs();
-
 		Session session = factory.openSession();
 
-		
-			Query query = session.createQuery("from Utilisateurs where email=:emailparam and password=:passparam ");
-			query.setString("emailparam",email);
-			query.setString("passparam",password);
-			
-			
 
-			 utilisateurs = query.list();
 
-			 if (utilisateurs.isEmpty())
-				 
-				result=0;
-				 
-				 else 
-					 
-					{
-				 
-			 
+		Query query = session.createQuery("from Utilisateurs where email=:emailparam and password=:passparam ");
+		query.setString("emailparam",email);
+		query.setString("passparam",password);
+
+		utilisateurs = query.list();
+
+		if (utilisateurs.isEmpty() )
+		{		
+			utilisateurs.add(null);
+
+
+		}
+
+		/*	else   
+		{
+
 			for (int i=0 ; i< utilisateurs.size(); i++) {
 
 				Utilisateurs c = (Utilisateurs) utilisateurs.get(i);
-				
-				
-				
-				 result = c.getId_utilisateurs();
-				
-				 
-				/*System.out.println("id from db :"+ id);
 
-				System.out.println("Email:"+ c.getEmail());
-				System.out.println("Password :"+ c.getPassword());*/
+				System.out.println("nomnom:"+c.getNom());
 
+				//	user = new Utilisateurs(c.getId_utilisateurs(),c.getNom(),c.getPrenom(),c.getEmail(),c.getDate(),c.getAdmin());
 
+				// System.out.println("id from db :"+ id);
+				// System.out.println("Email:"+ c.getEmail());
+				// System.out.println("Password :"+ c.getPassword());
 
-			} }
+			} 
+		}*/
+
 
 
 		session.close();
 		factory.close();
-		return result;
+		return utilisateurs;
+
+
 	}
 
 
+	public List<?> selectSujet(long id_utilisateurs) {
 
 
-
-	/*	private void DeleteCommand(String code) {
-
+		addAllConfigs();
 		Session session = factory.openSession();
-        session.beginTransaction();
 
 
-		try {
+
+		Query query = session.createQuery("from Sujet where id_utilisateurs=:idparam ");
+		query.setLong("idparam",id_utilisateurs);
 
 
-			Query q = session.createQuery("delete Commande d where d.code='A4' " );
+		sujets = query.list();
 
-			//q.executeUpdate();
+		if (sujets.isEmpty() )
+		{		
+			sujets.add(null);
 
-			int result = q.executeUpdate();
 
-
-			System.out.println(result);
-
-			 session.getTransaction().commit(); 
-		}	
-
-		finally {
-			session.close();
 		}
 
 
+		session.close();
 		factory.close();
+		return sujets;
 
 
 	}
 
 
-	private void selectCommand(String code) {
+	public List<?> selectAllSujet() {
 
+
+		addAllConfigs();
 		Session session = factory.openSession();
 
-		try {
 
 
-			Query query = session.createQuery("from Commande where code=:codeparam ");
-			query.setString("codeparam",code);
-
-			List commandes = query.list();
-
-			for (int i=0 ; i< commandes.size(); i++) {
-
-				Commande c = (Commande) commandes.get(i);
-				System.out.println("Nom:"+ c.getLibelle());
-				System.out.println("Prenom:"+ c.getMontant());
+		Query query = session.createQuery("from Sujet");
 
 
-			} 
+		sujets = query.list();
+
+		if (sujets.isEmpty() )
+		{		
+			sujets.add(null);
 
 
-
-
-		}	
-
-		finally {session.close();
 		}
 
+
+		session.close();
 		factory.close();
+		return sujets;
+
+
 	}
+	
+	
+	public List<?> selectSujetToCount(long id_sujet) {
 
-	private void insertCommande(String code,String libelle, String montant) {
+
+		addAllConfigs();
 		Session session = factory.openSession();
-		Transaction tx = null;
 
 
 
-		try {
-
-			tx = session.beginTransaction();
-			Commande c1= new Commande();
-			c1.setCode(code);
-			c1.setLibelle(libelle);
-			c1.setMontant(montant);
-			session.save(c1);
-
-			tx.commit();
-
-		}	catch (HibernateException ex) {
+		Query query = session.createQuery("from Sujet where id_sujet=:idparam ");
+		query.setLong("idparam",id_sujet);
 
 
-			if (tx != null)
-				tx.rollback();
+		sujets = query.list();
 
-		}  finally {session.close();
+		if (sujets.isEmpty() )
+		{		
+			sujets.add(null);
+
+
 		}
 
 
+		session.close();
+		factory.close();
+		return sujets;
+
 
 	}
-	 */
+	
+	
+	
+	
+	
+	public List<?> selectCountSujet(long id_sujet) {
+
+
+		addAllConfigs();
+		Session session = factory.openSession();
+
+
+
+		Query query = session.createQuery("from Sujet_adherant where id_sujet=:idparam ");
+		query.setLong("idparam",id_sujet);
+
+
+		sujets = query.list();
+
+		if (sujets.isEmpty() )
+		{		
+			sujets.add(null);
+
+
+		}
+
+
+		session.close();
+		factory.close();
+		return sujets;
+
+
+	}
+
+
+	
+	
+
+
 }
 

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 14 déc. 2017 13:06:01 by Hibernate Tools 5.2.6.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="Achat_collectif" dynamic-insert="false" dynamic-update="false" mutable="true" name="Commentaires" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="Commentaires">
+        <id name="idCommentaire" type="java.lang.Integer">
+            <column name="id_commentaire"/>
+            <generator class="identity"/>
+        </id>
+        <property generated="never" lazy="false" name="idSujet" optimistic-lock="true" type="int" unique="false">
+            <column name="id_sujet" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="idUtilisateurs" optimistic-lock="true" type="int" unique="false">
+            <column name="id_utilisateurs" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="commentaire" optimistic-lock="true" type="string" unique="false">
+            <column length="65535" name="commentaire" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>

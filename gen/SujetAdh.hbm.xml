@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 14 déc. 2017 13:06:01 by Hibernate Tools 5.2.6.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+
+
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+   
+    <class catalog="Achat_collectif" dynamic-insert="false" dynamic-update="false" mutable="true" name="SujetAdh" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="Sujet_adh">
+        <id name="idAdhSujet" type="java.lang.Integer">
+            <column name="id_adh_sujet"/>
+            <generator class="identity"/>
+        </id>
+        <property generated="never" lazy="false" name="idSujet" optimistic-lock="true" type="int" unique="false">
+            <column name="id_sujet" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="idUtilisateurs" optimistic-lock="true" type="int" unique="false">
+            <column name="id_utilisateurs" not-null="true"/>
+        </property>
+    
+    </class>
+    
+    
+    
+</hibernate-mapping>

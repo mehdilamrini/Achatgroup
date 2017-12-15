@@ -14,7 +14,44 @@ public class Sujet {
 	private String rubrique;
 	private String description ;
 	private String dt;
+	private int nb_utilisateurs;
+	private int validation ;
 
+	
+	
+	public Sujet(long id_sujet, long id_utilisateurs, String titre, double prix_initial, double prix_final, Date date_expiration,
+			String rubrique, String description , int nb_utilisateurs , int validation) {
+		super();
+		this.id_sujet = id_sujet;
+		this.id_utilisateurs = id_utilisateurs;
+		this.titre = titre;
+		this.prix_initial = prix_initial;
+		this.prix_final = prix_final;
+		this.date_expiration = date_expiration;
+		this.rubrique = rubrique;
+		this.description = description;
+		this.nb_utilisateurs=nb_utilisateurs;
+	}
+	
+	public Sujet(String titre, double prix_initial, double prix_final, Date date_expiration,
+			String rubrique, String description , int nb_utilisateurs,  int validation) {
+	
+		this.titre = titre;
+		this.prix_initial = prix_initial;
+		this.prix_final = prix_final;
+		this.date_expiration = date_expiration;
+		this.rubrique = rubrique;
+		this.description = description;
+		this.nb_utilisateurs=nb_utilisateurs;
+		this.validation=validation;
+	}
+	
+
+
+	public Sujet() {
+		super();
+	}
+	
 	
 
 	public String getDt() {
@@ -58,29 +95,7 @@ public class Sujet {
 		this.id_utilisateurs = id_utilisateurs;
 	}
 	
-	
-	
-	
-	public Sujet(long id_sujet, long id_utilisateurs, String titre, double prix_initial, double prix_final, Date date_expiration,
-			String rubrique, String description) {
-		super();
-		this.id_sujet = id_sujet;
-		this.id_utilisateurs = id_utilisateurs;
-		this.titre = titre;
-		this.prix_initial = prix_initial;
-		this.prix_final = prix_final;
-		this.date_expiration = date_expiration;
-		this.rubrique = rubrique;
-		this.description = description;
-	}
 
-
-	public Sujet() {
-		super();
-	}
-	
-	
-	
 	public long getId_sujet() {
 		return id_sujet;
 	}
@@ -118,6 +133,23 @@ public class Sujet {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+
+	public int getNb_utilisateurs() {
+		return nb_utilisateurs;
+	}
+
+	public void setNb_utilisateurs(int nb_utilisateurs) {
+		this.nb_utilisateurs = nb_utilisateurs;
+	}
+
+	public int getValidation() {
+		return validation;
+	}
+
+	public void setValidation(int validation) {
+		this.validation = validation;
+	}
+	
 	
 	
 

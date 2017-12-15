@@ -1,19 +1,38 @@
 package achatcollectif.model;
 
 public class Commentaires {
-	
-	private long id_commentaires;
+
+	private long id_commentaire;
 	private long id_utilisateurs;
 	private long id_sujet;
-	private String description;
-	
-	
-	public long getId_commentaires() {
-		return id_commentaires;
+	private String commentaire;
+
+
+	public Commentaires(long id_commentaire, long id_utilisateurs, long id_sujet, String commentaire) {
+		super();
+		this.id_commentaire = id_commentaire;
+		this.id_utilisateurs = id_utilisateurs;
+		this.id_sujet = id_sujet;
+		this.commentaire = commentaire;
 	}
-	public void setId_commentaires(long id_commentaires) {
-		this.id_commentaires = id_commentaires;
+	
+	public Commentaires() {
+		super();
 	}
+	
+
+
+
+
+
+	public long getId_commentaire() {
+		return id_commentaire;
+	}
+
+	public void setId_commentaire(long id_commentaire) {
+		this.id_commentaire = id_commentaire;
+	}
+
 	public long getId_utilisateurs() {
 		return id_utilisateurs;
 	}
@@ -26,21 +45,18 @@ public class Commentaires {
 	public void setId_sujet(long id_sujet) {
 		this.id_sujet = id_sujet;
 	}
-	public String getDescription() {
-		return description;
+
+
+	public String getCommentaire() {
+		return commentaire;
 	}
-	public void setDescription(String description) {
-		this.description = description;
+
+
+	public void setCommentaire(String commentaire) {
+		this.commentaire = commentaire;
 	}
-	public Commentaires(long id_commentaires, long id_utilisateurs, long id_sujet, String description) {
-		super();
-		this.id_commentaires = id_commentaires;
-		this.id_utilisateurs = id_utilisateurs;
-		this.id_sujet = id_sujet;
-		this.description = description;
-	}
-	
-	
-	
+
+
+
 
 }

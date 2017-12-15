@@ -1,5 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"	
 <html>
 
@@ -21,7 +19,6 @@ function suj() {
 	this.document.monF.submit();
 	
 }
-
 
 
 </script>
@@ -72,6 +69,13 @@ function suj() {
 </tr>
 
 
+<tr>
+<td>Nombre d'adhérent:</td>
+<td colspan=2><input type="text" name="sujetBean.nb_utilisateurs" /> </td>
+
+</tr>
+
+
 
 <tr>
 <td>Date d'expiration :</td>
@@ -87,7 +91,7 @@ function suj() {
 
 <tr>
 <td>Description: </td>
-<td colspan=2><input type="password" name="sujetBean.description" /></td>
+<td colspan=2><input type="text" name="sujetBean.description" /></td>
 <tr>
 <tr>
 

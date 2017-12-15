@@ -1,9 +1,10 @@
 package achatcollectif.metier;
 
+import java.util.List;
 
 public interface ILoginMetier {
 
 	
-	 long LoginUtilisateur(String email , String password);
+	List<?> LoginUtilisateur(String email , String password);
 	
 }

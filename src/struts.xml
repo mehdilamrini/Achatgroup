@@ -4,18 +4,31 @@
    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
    "http://struts.apache.org/dtds/struts-2.0.dtd">
 <struts>
+		<constant name="struts.ognl.allowStaticMethodAccess" value="true"/>
+
 
 		<package name="module-general" extends="struts-default">
 		
 		<action name=""><result>/vues/accueil.jsp</result></action> 
 		
-		<action name="login"
+		<action name="login"   
+		
 		
 		class="achatcollectif.presentation.actions.LoginAction" method="login">
 		
 		<result name="success">/vues/login_ok.jsp</result>
 		<result name="error">/vues/login_ko.jsp</result>
 		</action>
+		
+		<action name="logout" 
+		
+		class="achatcollectif.presentation.actions.LoginAction" method="logout">
+                
+            <result name="success">/vues/logout.jsp</result>
+            
+        </action>
+        
+        
 		
 		
 		<action name="signin"
@@ -40,6 +53,92 @@
 		
 		
 		</action>
+		
+		
+		<action name="deletesujet"
+		
+		class="achatcollectif.presentation.actions.DeleteSujetAction" method="Del">
+		
+		<result name="success">/vues/login_ok.jsp</result>
+		<result name="input">/vue/mes_sujets.jsp</result>
+		<result name="error">/vues/delete_ko.jsp</result>
+		
+		
+		</action>
+		
+			<action name="selectsujet"
+		
+		class="achatcollectif.presentation.actions.SelectSujetAction" method="sujet">
+		
+		<result name="success">/vues/mes_sujets.jsp</result>
+		<result name="input">/vue/mes_sujets.jsp</result>
+		<result name="error">/vues/error.jsp</result>
+		
+		
+		</action>
+		
+			<action name="listerall"
+		
+		class="achatcollectif.presentation.actions.SelectSujetAction" method="Allsujet">
+		
+		<result name="success">/vues/all_sujets.jsp</result>
+		<result name="input">/vue/mes_sujets.jsp</result>
+		<result name="error">/vues/error.jsp</result>
+		
+		
+		</action>
+		
+		
+			<action name="adherersujet"
+		
+		class="achatcollectif.presentation.actions.AdhererSujetAction" method="adherer">
+		
+		<result name="success">/vues/login_ok.jsp</result>
+		<result name="input">/vue/all_sujets.jsp</result>
+		<result name="error">/vues/error.jsp</result>
+		
+		
+		</action>
+		
+		
+		
+				<action name="commenter"
+		
+		class="achatcollectif.presentation.actions.CommenterSujetAction" method="Commenter">
+		
+		<result name="success">/vues/login_ok.jsp</result>
+		<result name="input">/vues/commenter.jsp</result>
+		<result name="error">/vues/error.jsp</result>
+		
+		
+		</action>
+		
+		
+		
+		<action name="detailsujet"
+		
+		class="achatcollectif.presentation.actions.SelectSujetAction" method="sujettocount">
+		
+		<result name="success">/vues/details_sujet.jsp</result>
+		<result name="input">/vues/details_sujet.jsp</result>
+		<result name="error">/vues/error.jsp</result>
+		
+		
+		</action>
+		
+		
+		<action name="update"
+		
+		class="achatcollectif.presentation.actions.UpdateProfilAction" method="updateprofil">
+		
+		<result name="success">/vues/login_ok.jsp</result>
+		<result name="input">/vues/error.jsp</result>
+		<result name="error">/vues/error.jsp</result>
+		
+		
+		</action>
+		
+		
 		
 		
 		

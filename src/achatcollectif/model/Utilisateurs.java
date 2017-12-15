@@ -12,9 +12,7 @@ public class Utilisateurs {
 	private Date date ;
 	private String dt;
 	private int admin;
-
-
-
+	
 	public Utilisateurs(long id_utilisateurs, String nom, String prenom,String email ,String password, Date date,String dt, int admin) {
 
 		super();
@@ -27,13 +25,28 @@ public class Utilisateurs {
 		this.admin = admin;
 		this.dt=dt;
 	}
+	
+	
+	public Utilisateurs(long id_utilisateurs, String nom, String prenom,String email, Date date,int admin) {
+
+		super();
+		this.id_utilisateurs = id_utilisateurs;
+		this.email=email;
+		this.nom = nom;
+		this.prenom = prenom;
+		//this.password=password;
+		this.date = date;
+		this.admin = admin;
+		//this.dt=dt;
+	}
+	
 
 	public Utilisateurs() {
 		super();
 		
 	}
 	
-	
+		
 	public String getEmail() {
 		return email;
 	}

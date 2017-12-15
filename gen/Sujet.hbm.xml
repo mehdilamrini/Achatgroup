@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 14 déc. 2017 13:06:01 by Hibernate Tools 5.2.6.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="Achat_collectif" dynamic-insert="false" dynamic-update="false" mutable="true" name="Sujet" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="Sujet">
+        <id name="idSujet" type="java.lang.Integer">
+            <column name="id_sujet"/>
+            <generator class="identity"/>
+        </id>
+        <property generated="never" lazy="false" name="idUtilisateurs" optimistic-lock="true" type="int" unique="false">
+            <column name="id_utilisateurs" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="titre" optimistic-lock="true" type="string" unique="false">
+            <column length="100" name="titre" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="prixInitial" optimistic-lock="true" type="double" unique="false">
+            <column name="prix_initial" not-null="true" precision="22" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="prixFinal" optimistic-lock="true" type="double" unique="false">
+            <column name="prix_final" not-null="true" precision="22" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="nbUtilisateurs" optimistic-lock="true" type="int" unique="false">
+            <column name="nb_utilisateurs" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="dateExpiration" optimistic-lock="true" type="date" unique="false">
+            <column length="10" name="date_expiration" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="rubrique" optimistic-lock="true" type="string" unique="false">
+            <column length="50" name="rubrique" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="image" optimistic-lock="true" type="binary" unique="false">
+            <column name="image"/>
+        </property>
+        <property generated="never" lazy="false" name="description" optimistic-lock="true" type="string" unique="false">
+            <column length="65535" name="description" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="validation" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="validation"/>
+        </property>
+    </class>
+</hibernate-mapping>

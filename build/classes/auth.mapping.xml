@@ -5,54 +5,128 @@
 
 <hibernate-mapping>
 
-		<class name="achatcollectif.model.Utilisateurs" table="Utilisateurs">
-	
+	<class name="achatcollectif.model.Utilisateurs" table="Utilisateurs">
+
 		<id name="id_utilisateurs" type="long" column="id_utilisateurs">
 			<generator class="increment" />
 		</id>
-		
-		<property name="nom" type="string" column="nom"/>
-		<property name="prenom" type="string"  column="prenom" />
-		<property name="email"  type="string" column="email" />
-		<property name="password"  type="string" column="password" />
-		<property name="date"  type="date" column="date_naissance" />
-		<property name="admin" type="int"  column="admin" />
-		</class>
-		
-		
-		<class catalog="Achat_collectif" dynamic-insert="false" dynamic-update="false" mutable="true" name="achatcollectif.model.Sujet" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="Sujet">
-        <id name="id_sujet" type="long">
-            <column name="id_sujet"/>
-            <generator class="identity"/>
-        </id>
-        <property generated="never" lazy="false" name="id_utilisateurs" optimistic-lock="true" type="long" unique="false">
-            <column name="id_utilisateurs" not-null="true"/>
-        </property>
-        <property generated="never" lazy="false" name="titre" optimistic-lock="true" type="string" unique="false">
-            <column length="100" name="titre" not-null="true"/>
-        </property>
-        <property generated="never" lazy="false" name="prix_initial" optimistic-lock="true" type="double" unique="false">
-            <column name="prix_initial" not-null="true" precision="22" scale="0"/>
-        </property>
-        <property generated="never" lazy="false" name="prix_final" optimistic-lock="true" type="double" unique="false">
-            <column name="prix_final" not-null="true" precision="22" scale="0"/>
-        </property>
-        <property generated="never" lazy="false" name="date_expiration" optimistic-lock="true" type="date" unique="false">
-            <column length="10" name="date_expiration" not-null="true"/>
-        </property>
-        <property generated="never" lazy="false" name="rubrique" optimistic-lock="true" type="string" unique="false">
-            <column length="50" name="rubrique" not-null="true"/>
-        </property>
-        <property generated="never" lazy="false" name="image" optimistic-lock="true" type="string" unique="false">
-            <column length="50" name="image" not-null="false"/>
-        </property>
-        <property generated="never" lazy="false" name="description" optimistic-lock="true" type="string" unique="false">
-            <column length="65535" name="description" not-null="true"/>
-        </property>
-    </class>
-    
-    
-    
-    
+
+		<property name="nom" type="string" column="nom" />
+		<property name="prenom" type="string" column="prenom" />
+		<property name="email" type="string" column="email" />
+		<property name="password" type="string" column="password" />
+		<property name="date" type="date" column="date_naissance" />
+		<property name="admin" type="int" column="admin" />
+	</class>
+
+
+	<class catalog="Achat_collectif" dynamic-insert="false"
+		dynamic-update="false" mutable="true" name="achatcollectif.model.Sujet"
+		optimistic-lock="version" polymorphism="implicit"
+		select-before-update="false" table="Sujet">
+		<id name="id_sujet" type="long">
+			<column name="id_sujet" />
+			<generator class="identity" />
+		</id>
+		<property generated="never" lazy="false" name="id_utilisateurs"
+			optimistic-lock="true" type="long" unique="false">
+			<column name="id_utilisateurs" not-null="true" />
+		</property>
+		<property generated="never" lazy="false" name="titre"
+			optimistic-lock="true" type="string" unique="false">
+			<column length="100" name="titre" not-null="true" />
+		</property>
+		<property generated="never" lazy="false" name="prix_initial"
+			optimistic-lock="true" type="double" unique="false">
+			<column name="prix_initial" not-null="true" precision="22"
+				scale="0" />
+		</property>
+		<property generated="never" lazy="false" name="prix_final"
+			optimistic-lock="true" type="double" unique="false">
+			<column name="prix_final" not-null="true" precision="22"
+				scale="0" />
+		</property>
+		<property generated="never" lazy="false" name="date_expiration"
+			optimistic-lock="true" type="date" unique="false">
+			<column length="10" name="date_expiration" not-null="true" />
+		</property>
+		<property generated="never" lazy="false" name="rubrique"
+			optimistic-lock="true" type="string" unique="false">
+			<column length="50" name="rubrique" not-null="true" />
+		</property>
+		<property generated="never" lazy="false" name="image"
+			optimistic-lock="true" type="binary" unique="false">
+			<column length="50" name="image" not-null="false" />
+		</property>
+		<property generated="never" lazy="false" name="description"
+			optimistic-lock="true" type="string" unique="false">
+			<column length="65535" name="description" not-null="true" />
+		</property>
+
+		<property generated="never" lazy="false" name="nb_utilisateurs"
+			optimistic-lock="true" type="int" unique="false">
+			<column name="nb_utilisateurs" not-null="true" />
+		</property>
+
+
+		<property generated="never" lazy="false" name="validation"
+			optimistic-lock="true" type="int" unique="false">
+			<column name="validation" not-null="false" />
+		</property>
+
+
+
+
+
+	</class>
+
+
+
+
+
+	<class catalog="Achat_collectif"
+		dynamic-insert="false" dynamic-update="false" mutable="true" name="achatcollectif.model.Sujet_adherant"
+		optimistic-lock="version" polymorphism="implicit"
+		select-before-update="false" table="Sujet_adh">
+		<id name="id_adh_sujet" type="long">
+			<column name="id_adh_sujet" />
+			<generator class="identity" />
+		</id>
+
+		<property generated="never" lazy="false" name="id_sujet"
+			optimistic-lock="true" type="long" unique="false">
+			<column name="id_sujet" not-null="true" />
+		</property>
+		<property generated="never" lazy="false" name="id_utilisateurs"
+			optimistic-lock="true" type="long" unique="false">
+			<column name="id_utilisateurs" not-null="true" />
+		</property>
+
+	</class>
+
+
+
+
+
+
+
+
+	<class name="achatcollectif.model.Commentaires" table="Commentaires">
+
+		<id name="id_commentaire" type="long" column="id_commentaire">
+			<generator class="increment" />
+		</id>
+
+		<property name="id_sujet" type="long" column="id_sujet" />
+		<property name="id_utilisateurs" type="long" column="id_utilisateurs" />
+		<property name="commentaire" type="string" column="commentaire" />
+
+
+	</class>
+
+
+
+
+
 
 </hibernate-mapping>
