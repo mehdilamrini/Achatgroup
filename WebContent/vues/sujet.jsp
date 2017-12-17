@@ -12,15 +12,11 @@
 </head>
 
 <script type="text/javascript">
-
-
 function suj() {
 	this.document.monF.action="sujet.action";
 	this.document.monF.submit();
 	
 }
-
-
 </script>
 
 
@@ -36,7 +32,7 @@ function suj() {
 
 
 
-<form name="monF" method="get">
+<form name="monF" method="post" enctype="multipart/form-data" >
 
 
 
@@ -93,10 +89,14 @@ function suj() {
 <td>Description: </td>
 <td colspan=2><input type="text" name="sujetBean.description" /></td>
 <tr>
-<tr>
 
 
-</tr>
+		<tr> 
+		<td> <label for = "myFile">Upload your file</label>
+         <td><input type = "file" name = "myFile" />
+		</tr>
+
+
 <tr>
 <td colspan=3><input type="submit" value="Créer sujet" onclick="suj()" />
 </td>

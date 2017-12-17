@@ -5,7 +5,8 @@
    "http://struts.apache.org/dtds/struts-2.0.dtd">
 <struts>
 		<constant name="struts.ognl.allowStaticMethodAccess" value="true"/>
-
+		 <constant name = "struts.devMode" value = "true" />
+  	 <constant name = "struts.multipart.maxSize" value = "1000000" />
 
 		<package name="module-general" extends="struts-default">
 		
@@ -36,7 +37,7 @@
 		class="achatcollectif.presentation.actions.CreateAccountAction" method="CreateAccount">
 		
 		<result name="success">/vues/signin_ok.jsp</result>
-		<result name="input">/vue/signin.jsp</result>
+		<result name="input">/vues/signin.jsp</result>
 		<result name="error">/vues/signin_ko.jsp</result>
 		
 		
@@ -47,9 +48,18 @@
 		
 		class="achatcollectif.presentation.actions.CreateSujetAction" method="CreateSujet">
 		
+		
+		 <interceptor-ref name = "basicStack"/>
+  		 <interceptor-ref name = "fileUpload">
+      <param name = "allowedTypes">image/jpeg,image/gif,image/jpg</param>
+  		 </interceptor-ref>
+		
+		
 		<result name="success">/vues/sujet_ok.jsp</result>
-		<result name="input">/vue/sujet.jsp</result>
+		<result name="input">/vues/sujet.jsp</result>
 		<result name="error">/vues/sujet_ko.jsp</result>
+		
+	
 		
 		
 		</action>
@@ -60,7 +70,7 @@
 		class="achatcollectif.presentation.actions.DeleteSujetAction" method="Del">
 		
 		<result name="success">/vues/login_ok.jsp</result>
-		<result name="input">/vue/mes_sujets.jsp</result>
+		<result name="input">/vues/mes_sujets.jsp</result>
 		<result name="error">/vues/delete_ko.jsp</result>
 		
 		
@@ -71,7 +81,7 @@
 		class="achatcollectif.presentation.actions.SelectSujetAction" method="sujet">
 		
 		<result name="success">/vues/mes_sujets.jsp</result>
-		<result name="input">/vue/mes_sujets.jsp</result>
+		<result name="input">/vues/mes_sujets.jsp</result>
 		<result name="error">/vues/error.jsp</result>
 		
 		
@@ -82,7 +92,7 @@
 		class="achatcollectif.presentation.actions.SelectSujetAction" method="Allsujet">
 		
 		<result name="success">/vues/all_sujets.jsp</result>
-		<result name="input">/vue/all_sujets.jsp</result>
+		<result name="input">/vues/all_sujets.jsp</result>
 		<result name="error">/vues/error.jsp</result>
 		
 		
@@ -94,7 +104,7 @@
 		class="achatcollectif.presentation.actions.AdhererSujetAction" method="adherer">
 		
 		<result name="success">/vues/login_ok.jsp</result>
-		<result name="input">/vue/all_sujets.jsp</result>
+		<result name="input">/vues/all_sujets.jsp</result>
 		<result name="error">/vues/error.jsp</result>
 		
 		

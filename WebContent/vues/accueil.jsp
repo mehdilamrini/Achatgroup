@@ -62,6 +62,9 @@
 						href="<%=application.getContextPath()%>/vues/signin.jsp">Créer
 							un Compte</a></td>
 				</tr>
+				
+				
+				
 
 
 
@@ -77,6 +80,13 @@
 
 
 	</form>
+	
+	
+	<tr>
+	<td colspan=3><input type="submit" value="tous les sujets" onclick="adh()" />
+	</td>
+	</tr>
+	
 
 
 			

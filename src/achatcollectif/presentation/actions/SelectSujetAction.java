@@ -91,13 +91,42 @@ public class SelectSujetAction extends ActionSupport {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		HttpSession session = request.getSession();
 		
-		id_utilisateurs = (long) session.getAttribute("id_utilisateurs");
+		//id_utilisateurs = (long) session.getAttribute("id_utilisateurs");
 		
 		
 		metier = new SelectSujetMetier();
+		
 		results = metier.selectallSujetMetier();
 
-		if (results.contains(null))
+		
+		//System.out.println("tab debuuggg:"+results);
+		
+		if (results.isEmpty()) {
+			
+			return Action.ERROR;
+			
+			
+		} else {
+			
+			for (int i=0 ; i< results.size(); i++) {
+
+
+
+				Sujet c = (Sujet) results.get(i);
+				arr.add(c);
+
+				System.out.println("Sujet    :"+c);
+
+
+
+			
+		}
+			
+			return Action.SUCCESS;
+		}
+			
+			
+		/*if (results.contains(null))
 
 			return Action.ERROR;
 
@@ -114,10 +143,11 @@ public class SelectSujetAction extends ActionSupport {
 
 
 
-			}
+			
 
-			return Action.SUCCESS;
-		}
+			
+		}}*/
+		
 	}
 
 
@@ -128,10 +158,11 @@ public class SelectSujetAction extends ActionSupport {
 		arr = new ArrayList<Sujet>();
 		
 		HttpServletRequest request = ServletActionContext.getRequest();
+		
+		
 		long id_sujet = Long.parseLong( request.getParameter("id_sujet") );
 
 		metier = new SelectSujetMetier ();
-		
 		metier2= new UpdateDealMetier();
 		metier3 = new SendMailMetier();
 
@@ -165,8 +196,7 @@ public class SelectSujetAction extends ActionSupport {
 
 				{
 
-					valid = "Deal Validé" ;
-					
+					valid = "Deal Validé" ;	
 					metier2.UpdateDealM(id_sujet, 1);
 					metier3.SendMail();
 
@@ -192,15 +222,6 @@ public class SelectSujetAction extends ActionSupport {
 		}
 
 	}
-
-
-
-
-
-
-
-
-
 
 
 	public List<?> getNombre_adh() {

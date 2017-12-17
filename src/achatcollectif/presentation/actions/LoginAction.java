@@ -77,8 +77,6 @@ public class LoginAction extends ActionSupport implements SessionAware
 					result = c.getId_utilisateurs();
 					session.put("id_utilisateurs", result);
 					
-
-
 					nom = c.getNom();
 					session.put("nom", nom);
 					

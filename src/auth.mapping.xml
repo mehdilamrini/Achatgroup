@@ -55,8 +55,8 @@
 			<column length="50" name="rubrique" not-null="true" />
 		</property>
 		<property generated="never" lazy="false" name="image"
-			optimistic-lock="true" type="binary" unique="false">
-			<column length="50" name="image" not-null="false" />
+			optimistic-lock="true" type="string" unique="false">
+			<column length="200" name="image" not-null="false" />
 		</property>
 		<property generated="never" lazy="false" name="description"
 			optimistic-lock="true" type="string" unique="false">

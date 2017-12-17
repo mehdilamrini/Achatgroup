@@ -33,6 +33,8 @@ public class SelectDAO implements ISelectDAO {
 
 	public List<?> selectEmailPass(String email,String password) {
 
+		
+		
 
 		addAllConfigs();
 		Session session = factory.openSession();

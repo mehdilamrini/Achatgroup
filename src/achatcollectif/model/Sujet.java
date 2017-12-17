@@ -2,8 +2,10 @@ package achatcollectif.model;
 
 import java.util.Date;
 
-public class Sujet {
+public class Sujet implements java.io.Serializable {
 	
+	
+	private static final long serialVersionUID = 1L;
 	private long id_sujet;
 	private long id_utilisateurs;
 	private String titre;
@@ -11,6 +13,7 @@ public class Sujet {
 	private double prix_final;
 	private Date date_expiration ;
 	private String image;
+	//private String im;
 	private String rubrique;
 	private String description ;
 	private String dt;
@@ -19,6 +22,25 @@ public class Sujet {
 
 	
 	
+	
+	
+	public Sujet(long id_sujet, long id_utilisateurs, String titre, double prix_initial, double prix_final,
+			Date date_expiration, String image, String rubrique, String description, int nb_utilisateurs,
+			int validation) {
+		super();
+		this.id_sujet = id_sujet;
+		this.id_utilisateurs = id_utilisateurs;
+		this.titre = titre;
+		this.prix_initial = prix_initial;
+		this.prix_final = prix_final;
+		this.date_expiration = date_expiration;
+		this.image = image;
+		this.rubrique = rubrique;
+		this.description = description;
+		this.nb_utilisateurs = nb_utilisateurs;
+		this.validation = validation;
+	}
+
 	public Sujet(long id_sujet, long id_utilisateurs, String titre, double prix_initial, double prix_final, Date date_expiration,
 			String rubrique, String description , int nb_utilisateurs , int validation) {
 		super();
@@ -63,6 +85,9 @@ public class Sujet {
 		this.dt = dt;
 	}
 
+	
+	
+
 
 	public Date getDate_expiration() {
 		return date_expiration;
@@ -73,18 +98,6 @@ public class Sujet {
 		this.date_expiration = date_expiration;
 	}
 
-
-	public String getImage() {
-		return image;
-	}
-
-
-	public void setImage(String image) {
-		this.image = image;
-	}
-
-	
-	
 	
 	public long getId_utilisateurs() {
 		return id_utilisateurs;
@@ -149,6 +162,20 @@ public class Sujet {
 	public void setValidation(int validation) {
 		this.validation = validation;
 	}
+
+	
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+
+	
+	
+	
+	
 	
 	
 	

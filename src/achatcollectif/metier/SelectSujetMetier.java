@@ -10,6 +10,7 @@ public class SelectSujetMetier implements ISelectSujetMetier {
 	ISelectDAO dao = new SelectDAO();
 	
 	
+	
 	public List<?> selectSujet(long id_utilisateurs) {
 		
 		return dao.selectSujet(id_utilisateurs);
@@ -18,7 +19,9 @@ public class SelectSujetMetier implements ISelectSujetMetier {
 	
 	public List<?> selectallSujetMetier() {
 
-		return dao.selectAllSujet();
+		List<?> tab=dao.selectAllSujet();
+
+		return tab;
 
 	}
 	

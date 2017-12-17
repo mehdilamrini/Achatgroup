@@ -99,7 +99,7 @@ public class InsertDAO implements IInsertDAO {
 
 
 	public Boolean createSujet(long id_utilisateurs, String titre,double  prix_initial,
-			double  prix_final, Date date_expiration, String description, String rubrique , int nb_utilisateurs) {
+			double  prix_final, Date date_expiration, String description, String rubrique , int nb_utilisateurs, String image ) {
 
 		addAllConfigs();
 		Session session = factory.openSession();
@@ -133,6 +133,7 @@ public class InsertDAO implements IInsertDAO {
 			s.setDate_expiration(date_expiration);
 			s.setDescription(description);
 			s.setNb_utilisateurs(nb_utilisateurs);
+			s.setImage(image);
 
 			session.save(s);
 			tx.commit();
