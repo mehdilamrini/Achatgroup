@@ -13,7 +13,11 @@ import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionSupport;
 
 import achatcollectif.metier.ISelectSujetMetier;
+import achatcollectif.metier.ISendMailMetier;
+import achatcollectif.metier.IUpdateDealMetier;
 import achatcollectif.metier.SelectSujetMetier;
+import achatcollectif.metier.SendMailMetier;
+import achatcollectif.metier.UpdateDealMetier;
 import achatcollectif.model.Sujet;
 
 public class SelectSujetAction extends ActionSupport {
@@ -21,13 +25,16 @@ public class SelectSujetAction extends ActionSupport {
 	private static final long serialVersionUID = 1L;
 
 	ISelectSujetMetier metier;
+	IUpdateDealMetier metier2;
+	ISendMailMetier metier3;
+
 	private List<?> results ;
 	private List<?> results2;
 	List<?> list_nombre_adh;
-	List<Sujet> arr=null ;
+	List<Sujet> arr ;
+
 	private int nb_adh;
 	private String valid;
-
 	public long id_utilisateurs;
 
 	public String sujet() {
@@ -79,28 +86,22 @@ public class SelectSujetAction extends ActionSupport {
 
 	public String Allsujet() {
 
-
 		arr = new ArrayList<Sujet>();
 
 		HttpServletRequest request = ServletActionContext.getRequest();
 		HttpSession session = request.getSession();
-
+		
 		id_utilisateurs = (long) session.getAttribute("id_utilisateurs");
-
-
-
-		metier = new SelectSujetMetier ();
+		
+		
+		metier = new SelectSujetMetier();
 		results = metier.selectallSujetMetier();
-
 
 		if (results.contains(null))
 
 			return Action.ERROR;
 
-		else 
-
-
-		{    
+		else {    
 
 			for (int i=0 ; i< results.size(); i++) {
 
@@ -117,7 +118,6 @@ public class SelectSujetAction extends ActionSupport {
 
 			return Action.SUCCESS;
 		}
-
 	}
 
 
@@ -126,20 +126,24 @@ public class SelectSujetAction extends ActionSupport {
 
 
 		arr = new ArrayList<Sujet>();
+		
 		HttpServletRequest request = ServletActionContext.getRequest();
-		long id_sujet = Long.parseLong( request.getParameter("id_sujet"));
+		long id_sujet = Long.parseLong( request.getParameter("id_sujet") );
 
 		metier = new SelectSujetMetier ();
+		
+		metier2= new UpdateDealMetier();
+		metier3 = new SendMailMetier();
+
+
+
 		results = metier.selectSujetToCountMetier(id_sujet);
 		results2 = metier.selectCountSujetMetier(id_sujet);
-		
-		 nb_adh   = results2.size();
-		
+		nb_adh   = results2.size();
 		System.out.println("nombre d'adherent :" +nb_adh);
-		
-		
-	//	request.setAttribute("nb_adh",String.valueOf(nb_adh) );
 
+
+		//	request.setAttribute("nb_adh",String.valueOf(nb_adh) );
 		//request.setAttribute("nb_adh",nb_adh );
 
 		if (results.contains(null))
@@ -154,23 +158,30 @@ public class SelectSujetAction extends ActionSupport {
 			for (int i=0 ; i< results.size(); i++) {
 
 				Sujet c = (Sujet) results.get(i);
+
 				int restant = (c.getNb_utilisateurs()) - nb_adh;
-				
+
 				if ( restant == 0 )
-				
-			
+
+				{
+
+					valid = "Deal Validé" ;
 					
-					valid= "Deal Validé" ;
-			
-				
+					metier2.UpdateDealM(id_sujet, 1);
+					metier3.SendMail();
+
+
+				}
+
+
 				else {
-					
-					
-					
-					valid= "Deal en cours ,nombre d'adhérant restant "+restant ;
+
+
+
+					valid= "Deal en cours nombre d'adhérant restant "+restant ;
 				}
 				arr.add(c);
-				
+
 				//System.out.println("Sujet    :"+c);
 
 

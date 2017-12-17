@@ -2,6 +2,7 @@ package achatcollectif.metier;
 
 import java.util.Properties;
 
+import javax.mail.Address;
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.PasswordAuthentication;
@@ -12,8 +13,16 @@ import javax.mail.internet.MimeMessage;
 
 public class SendMailMetier implements ISendMailMetier {
 	
+	 
+	 
+	
 	
 public void SendMail() {
+	
+	
+	
+	
+	
 		
 		final String username = "contact.vipdev@gmail.com";
 		final String password = "SMARTLALALA00@@";
@@ -32,11 +41,15 @@ public void SendMail() {
 		  });
 
 		try {
+			
+			
 
 			Message message = new MimeMessage(session);
 			message.setFrom(new InternetAddress("contact.vipdev@gmail.com"));
+			
 			message.setRecipients(Message.RecipientType.TO,
-				InternetAddress.parse("mehdi.lamr@gmail.com"));
+				InternetAddress.parse("mehdi.lamr@gmail.com,contact@vipdevhd.com"));
+			
 			message.setSubject("Testing Subject");
 			message.setText("Dear Mail Crawler,"
 				+ "\n\n No spam to my email, please!");

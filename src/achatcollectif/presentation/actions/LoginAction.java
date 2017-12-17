@@ -85,7 +85,7 @@ public class LoginAction extends ActionSupport implements SessionAware
 					
 					prenom = c.getPrenom();
 					session.put("prenom", prenom);
-					date_naissance = c.getDate();
+					date_naissance = c.getDate_naissance();
 					session.put("date_naissance", date_naissance);
 
 					email = c.getEmail();

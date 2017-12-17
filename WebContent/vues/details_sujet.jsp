@@ -68,7 +68,7 @@
 
 			<tbody>
 
-				<s:iterator value="arr">
+				<s:iterator value="arr" >
 
 
 

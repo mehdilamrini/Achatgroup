@@ -42,8 +42,11 @@
 		<select name="id_sujet">
 
 			<s:iterator value="arr">
+			
 				<option value="<s:property value="id_sujet"/>"><s:property value="id_sujet"/></option>
+			
 			</s:iterator>
+			
 			<s:submit value="Supprimer" onclick="del()" />
 
 

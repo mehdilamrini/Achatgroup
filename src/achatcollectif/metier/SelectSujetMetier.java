@@ -16,14 +16,11 @@ public class SelectSujetMetier implements ISelectSujetMetier {
 		
 	}
 	
-	
 	public List<?> selectallSujetMetier() {
 
 		return dao.selectAllSujet();
 
 	}
-	
-	
 	
 	// pour la validation des deals
 	

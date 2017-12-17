@@ -21,10 +21,6 @@ public class Commentaires {
 	}
 	
 
-
-
-
-
 	public long getId_commentaire() {
 		return id_commentaire;
 	}

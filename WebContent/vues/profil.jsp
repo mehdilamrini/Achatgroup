@@ -12,7 +12,6 @@
 	function up() {
 		
 		this.document.monF.action = "update.action"
-		this.document.monF.method = "post";	
 		this.document.monF.submit();
 
 	}
@@ -51,7 +50,7 @@
 
 				<tr>
 					<td>Date de naissance:</td>
-					<td colspan=2><input type="date" value="${sessionScope.date_naissance}" name="userBean.date"></td>
+					<td colspan=2><input type="date" value="${sessionScope.date_naissance}" name="userBean.dt"></td>
 
 				</tr>
 
@@ -64,8 +63,7 @@
 
 
 				<tr>
-					<td colspan=3><input type="submit" value="Modifier"
-						onclick="up()" /></td>
+					<td colspan=3><input type="submit" value="Modifier" onclick="up()" /></td>
 
 				</tr>
 

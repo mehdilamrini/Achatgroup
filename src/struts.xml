@@ -82,7 +82,7 @@
 		class="achatcollectif.presentation.actions.SelectSujetAction" method="Allsujet">
 		
 		<result name="success">/vues/all_sujets.jsp</result>
-		<result name="input">/vue/mes_sujets.jsp</result>
+		<result name="input">/vue/all_sujets.jsp</result>
 		<result name="error">/vues/error.jsp</result>
 		
 		

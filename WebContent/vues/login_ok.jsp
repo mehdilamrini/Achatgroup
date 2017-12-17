@@ -58,7 +58,7 @@ function adh(){
 	</tr>
 	
 	<tr>
-	<td colspan=3><input type="submit" value="Adherer à un sujet" onclick="adh()" />
+	<td colspan=3><input type="submit" value="tous les sujets" onclick="adh()" />
 	</td>
 	</tr>
 	

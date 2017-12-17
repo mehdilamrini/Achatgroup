@@ -15,7 +15,7 @@
 		<property name="prenom" type="string" column="prenom" />
 		<property name="email" type="string" column="email" />
 		<property name="password" type="string" column="password" />
-		<property name="date" type="date" column="date_naissance" />
+		<property name="date_naissance" type="date" column="date_naissance" />
 		<property name="admin" type="int" column="admin" />
 	</class>
 

@@ -4,6 +4,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import javax.mail.internet.InternetAddress;
+
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -13,13 +15,12 @@ import achatcollectif.model.Utilisateurs;
 
 public class CreateAccountAction extends ActionSupport {
 
-
 	private static final long serialVersionUID = 1L;
+	
 
 	ICreateAccountMetier metier;
 
 	private Utilisateurs userBean;
-
 
 	public Utilisateurs getUserBean() {
 		return userBean;
@@ -48,18 +49,13 @@ public class CreateAccountAction extends ActionSupport {
 
 		metier = new CreateAccountMetier();
 
-
-
-
-
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-
 		Date parseDate = sdf.parse(userBean.getDt());
-
 
 
 		Boolean result = metier.CreateAccountM(userBean.getNom(), userBean.getPrenom(),
 				userBean.getPassword(), userBean.getEmail() ,parseDate);
+		
 
 		if (result == true) 
 			return Action.SUCCESS;

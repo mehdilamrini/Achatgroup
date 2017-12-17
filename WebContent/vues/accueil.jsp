@@ -16,13 +16,21 @@
 		this.document.monF.submit();
 
 	}
+
+
+	function adh(){
+		this.document.monF.action="listerall.action";
+		this.document.monF.submit();
+		
+	}
+		
 </script>
 
 
 <body>
 
 
-	<form name="monF" method="get">
+	<form name="monF" method="post">
 
 		<!--  input type="hidden" name="userBean.id_utilisateurs" -->
 
@@ -50,9 +58,17 @@
 
 				<tr>
 					<td colspan=3><input type="submit" value="Se connecter"
-						onclick="login()" /> <a href="<%=application.getContextPath()%>/vues/signin.jsp" >Créer un Compte</a>
-</td>
+						onclick="login()" /> <a
+						href="<%=application.getContextPath()%>/vues/signin.jsp">Créer
+							un Compte</a></td>
 				</tr>
+
+
+
+				
+				
+				
+				
 
 			</tbody>
 
@@ -63,7 +79,7 @@
 	</form>
 
 
-
+			
 
 
 </body>

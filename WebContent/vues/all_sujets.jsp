@@ -23,7 +23,6 @@
 
 	<script type="text/javascript">
 		function details() {
-
 			this.document.monF.action = "detailsujet.action";
 			this.document.monF.method = "post";
 			this.document.monF.submit();

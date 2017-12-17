@@ -58,7 +58,7 @@ public class InsertDAO implements IInsertDAO {
 			user.setPrenom(prenom);
 			user.setEmail(email);
 			user.setPassword(password);
-			user.setDate(date);
+			user.setDate_naissance(date);;
 
 
 			session.save(user);

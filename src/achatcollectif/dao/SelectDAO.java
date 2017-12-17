@@ -8,6 +8,8 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
+import achatcollectif.model.Sujet;
+
 
 
 
@@ -92,6 +94,28 @@ public class SelectDAO implements ISelectDAO {
 
 		sujets = query.list();
 
+
+
+		for (int i=0 ; i< sujets.size(); i++) {
+
+			Sujet c = (Sujet) sujets.get(i);
+
+
+
+			//	user = new Utilisateurs(c.getId_utilisateurs(),c.getNom(),c.getPrenom(),c.getEmail(),c.getDate(),c.getAdmin());
+
+			// System.out.println("id from db :"+ id);
+			// System.out.println("Email:"+ c.getEmail());
+			// System.out.println("Password :"+ c.getPassword());
+
+		} 
+
+
+
+
+
+
+
 		if (sujets.isEmpty() )
 		{		
 			sujets.add(null);
@@ -135,8 +159,8 @@ public class SelectDAO implements ISelectDAO {
 
 
 	}
-	
-	
+
+
 	public List<?> selectSujetToCount(long id_sujet) {
 
 
@@ -165,11 +189,11 @@ public class SelectDAO implements ISelectDAO {
 
 
 	}
-	
-	
-	
-	
-	
+
+
+
+
+
 	public List<?> selectCountSujet(long id_sujet) {
 
 
@@ -200,8 +224,38 @@ public class SelectDAO implements ISelectDAO {
 	}
 
 
-	
-	
+	public List<?> selectEmailToNotify(long id_sujet) {
+
+
+		addAllConfigs();
+		Session session = factory.openSession();
+
+
+
+		Query query = session.createQuery("from Sujet_adherant where id_sujet=:idparam ");
+		query.setLong("idparam",id_sujet);
+
+
+		sujets = query.list();
+
+		if (sujets.isEmpty() )
+		{		
+			sujets.add(null);
+
+
+		}
+
+
+		session.close();
+		factory.close();
+		return sujets;
+
+
+	}
+
+
+
+
 
 
 }

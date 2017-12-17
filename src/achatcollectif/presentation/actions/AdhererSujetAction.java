@@ -23,10 +23,6 @@ public class AdhererSujetAction extends ActionSupport {
 	public long selectedItem;
 
 
-
-
-
-
 	public String adherer() {
 
 
@@ -46,6 +42,11 @@ public class AdhererSujetAction extends ActionSupport {
 
 		metier = new AdhererSujetMetier();
 		result = metier.AdhererSujetM(id_utilisateurs, selectedItem);
+		
+		
+		
+		
+		
 
 
 

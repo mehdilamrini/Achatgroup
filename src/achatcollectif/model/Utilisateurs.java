@@ -9,11 +9,11 @@ public class Utilisateurs {
 	private String prenom;
 	private String password;
 	private String email;
-	private Date date ;
+	private Date date_naissance ;
 	private String dt;
 	private int admin;
 	
-	public Utilisateurs(long id_utilisateurs, String nom, String prenom,String email ,String password, Date date,String dt, int admin) {
+	public Utilisateurs(long id_utilisateurs, String nom, String prenom,String email ,String password, Date date_naissance,String dt, int admin) {
 
 		super();
 		this.id_utilisateurs = id_utilisateurs;
@@ -21,13 +21,13 @@ public class Utilisateurs {
 		this.nom = nom;
 		this.prenom = prenom;
 		this.password=password;
-		this.date = date;
+		this.date_naissance = date_naissance;
 		this.admin = admin;
 		this.dt=dt;
 	}
 	
 	
-	public Utilisateurs(long id_utilisateurs, String nom, String prenom,String email, Date date,int admin) {
+	public Utilisateurs(long id_utilisateurs, String nom, String prenom,String email, Date date_naissance,int admin) {
 
 		super();
 		this.id_utilisateurs = id_utilisateurs;
@@ -35,7 +35,7 @@ public class Utilisateurs {
 		this.nom = nom;
 		this.prenom = prenom;
 		//this.password=password;
-		this.date = date;
+		this.date_naissance = date_naissance;
 		this.admin = admin;
 		//this.dt=dt;
 	}
@@ -87,13 +87,17 @@ public class Utilisateurs {
 		this.prenom = prenom;
 	}
 
-	public Date getDate() {
-		return date;
+	
+
+	public Date getDate_naissance() {
+		return date_naissance;
 	}
 
-	public void setDate(Date date) {
-		this.date = date;
+
+	public void setDate_naissance(Date date_naissance) {
+		this.date_naissance = date_naissance;
 	}
+
 
 	public int getAdmin() {
 		return admin;
